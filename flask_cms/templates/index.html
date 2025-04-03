@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Content Management System</title>
+  </head>
+  <body>
+    {% if request.user %}
+    <a href="{{ url_for('add') }}">Logout</a>
+    {% else %}
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    {% endif %} {% if contents %}
+    <h1>Content List</h1>
+    <ul>
+      {% for content in contents %}
+      <li>{{ content.title }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <a href="{{ url_for('add') }}">Add New Content</a>
+  </body>
+</html>
